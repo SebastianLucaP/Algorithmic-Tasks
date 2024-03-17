@@ -1,23 +1,23 @@
 Feribot
 Complexitate: O(N * log N)
 
-Pentru rezolvarea primei probleme, am folosit metoda Divide et Impera, mai exact cautarea binara.
-Mai intai am construit doua variabile in care am calculat o greutate minima egala cu cea a
-masinii cu greutatea cea mai mare si o greutate maxima egala cu suma tuturor greutatilor.
-Apoi am creat variabila pentru greutatea medie, o copie a acesteia si o copie a numarului de
-feriboturi. Folosind cautarea binara, cat timp diferenta dintre greutatea minima si greutatea
-maxima este mai mare decat 1, calculez greutatea medie, iar apoi iterez prin multimea de masini.
-Scad din copia greutatii fiecare greutate a masinii, iar daca aceasta devine negativa decrementez
-numarul de feriboturi din copie si copia greutatii devine egala cu greutea medie minus greutatea
-masinii curente. La final, daca numarul de feriboturi este mai mare sau egal ca 0 maximul devine
-media, altfel minimul devine media. La terminarea while-ului returnez ceil(minW) lucrand cu
-double-uri pentru ca valorile sa fie corecte.
+Am folosit metoda Divide et Impera, mai exact cautarea binara. Mai intai am construit doua 
+variabile in care am calculat o greutate minima egala cu cea a masinii cu greutatea cea mai mare
+si o greutate maxima egala cu suma tuturor greutatilor. Apoi am creat variabila pentru greutatea
+medie, o copie a acesteia si o copie a numarului de feriboturi. Folosind cautarea binara, cat
+timp diferenta dintre greutatea minima si greutatea maxima este mai mare decat 1, calculez 
+greutatea medie, iar apoi iterez prin multimea de masini. Scad din copia greutatii fiecare 
+greutate a masinii, iar daca aceasta devine negativa decrementez numarul de feriboturi din copie
+si copia greutatii devine egala cu greutea medie minus greutatea masinii curente. La final, daca
+numarul de feriboturi este mai mare sau egal ca 0 maximul devine media, altfel minimul devine
+media. La terminarea while-ului returnez ceil(minW) lucrand cu double-uri pentru ca valorile sa
+fie corecte.
 
 Nostory
 Complexitate: 1. O(N * log N)
               2. O(N * log N)
 
-Pentru cea de-a doua problema, am folosit metoda Greedy.
+Am folosit metoda Greedy.
 
 Pentru primul task al problemei, am declarat o variabila pentru suma pe care am initializat-o cu 0,
 iar apoi am sortat primul vector crescator si pe al doilea descrescator. Cu un for am parcurs toate
@@ -37,7 +37,7 @@ Complexitate : 1. O(m * n * x)
                2. O(m * n * x)
                3. O(m * n^2 * x)
 
-Pentru cea de-a treia problema am folosit programare dinamica folosind o metoda similara cu cea
+Am folosit programare dinamica folosind o metoda similara cu cea
 a rucsacului.
 
 Pentru primul task, mi-am initializat vectorul dp, vector bidimensional, dupa care am pus pe prima
