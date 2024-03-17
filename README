@@ -1,0 +1,90 @@
+Feribot
+Complexitate: O(N * log N)
+
+Pentru rezolvarea primei probleme, am folosit metoda Divide et Impera, mai exact cautarea binara.
+Mai intai am construit doua variabile in care am calculat o greutate minima egala cu cea a
+masinii cu greutatea cea mai mare si o greutate maxima egala cu suma tuturor greutatilor.
+Apoi am creat variabila pentru greutatea medie, o copie a acesteia si o copie a numarului de
+feriboturi. Folosind cautarea binara, cat timp diferenta dintre greutatea minima si greutatea
+maxima este mai mare decat 1, calculez greutatea medie, iar apoi iterez prin multimea de masini.
+Scad din copia greutatii fiecare greutate a masinii, iar daca aceasta devine negativa decrementez
+numarul de feriboturi din copie si copia greutatii devine egala cu greutea medie minus greutatea
+masinii curente. La final, daca numarul de feriboturi este mai mare sau egal ca 0 maximul devine
+media, altfel minimul devine media. La terminarea while-ului returnez ceil(minW) lucrand cu
+double-uri pentru ca valorile sa fie corecte.
+
+Nostory
+Complexitate: 1. O(N * log N)
+              2. O(N * log N)
+
+Pentru cea de-a doua problema, am folosit metoda Greedy.
+
+Pentru primul task al problemei, am declarat o variabila pentru suma pe care am initializat-o cu 0,
+iar apoi am sortat primul vector crescator si pe al doilea descrescator. Cu un for am parcurs toate
+elementele din primul si al doilea vector si am adaugat la suma maximul dintre elementele de pe
+aceeasi pozitie in cei doi vectori, astfel obtinand suma maxima.
+
+Pentru cel de-al doilea task, am declarat aceeasi variabila pentru suma, iar apoi am parcurs cu un
+for cei doi vectori interschimband elementele de pe aceeasi pozitie din vectori daca elementul din
+primul vector este mai mic decat cel din al doilea vector. Apoi am sortat primul vector crescator
+si al doilea vector descrescator si parcurgand vectorii cu un for, in cazul in care mai am mutari
+disponibile si elementul din primul vector este mai mic decat cel din al doilea, l-am adaugat pe
+cel din al doilea vector la suma si am decrementat numarul de mutari disponibile, altfel l-am
+adaugat pe cel din primul vector.
+
+Sushi
+Complexitate : 1. O(m * n * x)
+               2. O(m * n * x)
+               3. O(m * n^2 * x)
+
+Pentru cea de-a treia problema am folosit programare dinamica folosind o metoda similara cu cea
+a rucsacului.
+
+Pentru primul task, mi-am initializat vectorul dp, vector bidimensional, dupa care am pus pe prima
+coloana a matricei 0-uri suma notelor fiind mereu 0 daca bugetul este 0. Apoi parcurgand cu doua
+for-uri vectorul bidimensional dp, in cadrul primului for calculez suma notelor pentru platoul
+curent. In cadrul celui de-al doilea for initializez suma din pozitia [i][cost] cu suma din pozitia
+[i-1][cost]. Apoi, daca costul platoului curent nu este mai mare decat bugetul curent, intr-o
+variabila sol calculez noua suma folosind relatia "dp[i-1][cost - p[i-1]] + nota", iar daca aceasta
+este mai mare decat cea calculata anterior ii ia locul pe pozitia curenta din dp. La final returnez
+ultima pozitie din dp.
+
+Pentru cel de-al doilea task, implementarea este similara, cu exceptia for-urilor pe care le-am
+utilizat pentru crearea a doua copii pentru vectorul de preturi si matricea de note, copiind
+coloanele la dreapta(avand voie sa comand 2 platouri din acelasi fel, am considerat fiecare platou
+ca fiind doua platouri diferite).
+
+Pentru cel de-al treilea task, implementarea este din nou similara cu cea de la al doilea task,
+singura diferenta fiind adaugarea celei de-a treia dimensiune in vectorul meu acum tridimensional
+dp. Aceasta dimensiune este folosita pentru a putea calcula suma maxima a notelor cand tinem cont
+si de un numar "n" maxim de platouri pe care le putem comanda pe langa costul acestora si bugetul
+prietenilor.
+
+Supercomputer
+Complexitate: O(N + M)
+
+Am inceput problema prin a deschide fisierele de intrare si iesire si a citi
+datele de intrare. Am creat vectorul care tine minte setul de date pentru
+fiecare task, lista de adiacenta si vectorul cu gradul de intrare. Apoi, am
+apelat functia care imi calculeaza numarul de context switch-uri utilizand un
+algoritm de sortare topologica modificat. Algoritmul foloseste doua cozi in
+care, la inceput, sunt adaugate task-urile cu gradul de intrare 0 ce utilizeaza
+primul set de date, respectiv al doilea. Dupa aceea, sunt efectuate doua
+sortari topologice incepand, pe rand, cu fiecare coada, iar in momentul in care
+coada se goleste se trece la cealalta coada, iar numarul de context switch-uri
+creste. In final, rezultatul este minimul dintre cele doua context switch-uri
+calculate.
+
+Magazin
+Complexitate: O(N + Q)
+
+Am inceput problema similar, prin deschiderea fisierelor si citirea datelor si
+crearea listei de adiacenta si a vectorului de intrebari. Apoi am apelat
+functia care implementeaza algoritmul DFS. In functie, utilizand algoritmul
+DFS, construiesc, pe langa vectorii uzuali start and finish, vectorul cu
+nodurile sortate in adancime si doua noduri de pozitie, unul in care indexul
+este nodul si valoare pozitia, iar unul in care indexul este pozitia si
+valoarea nodul. In final, utilizand vectorii start and finish, aflu daca se pot
+sau nu efectua destule expedieri, iar in cazul in care se poate, folosesc cei
+doi vectori de pozitie pentru a afla depozitele la care se vor efectua
+expedierile.
